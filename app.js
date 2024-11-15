@@ -19,8 +19,7 @@ const mongoURI = process.env.MONGO_URI;
 
 // Set the timeout options
 mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    
     connectTimeoutMS: 10000, // Timeout after 10 seconds
     socketTimeoutMS: 45000  // Socket timeout after 45 seconds
 })
