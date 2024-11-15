@@ -14,13 +14,18 @@ const app = express();
 // Middleware to parse JSON
 app.use(bodyParser.json());
 
-// MongoDB connection using Mongoose
-mongoose.connect(process.env.MONGO_URI, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+// MongoDB connection URI
+const mongoURI = process.env.MONGO_URI;
+
+// Set the timeout options
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: 10000, // Timeout after 10 seconds
+    socketTimeoutMS: 45000  // Socket timeout after 45 seconds
 })
-.then(() => console.log('MongoDB connected...'))
-.catch(err => console.log(err));
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.error('MongoDB connection error:', err));
 
 // Basic API route
 app.get('/', (req, res) => {
