@@ -2,12 +2,14 @@
   "name": "my-api",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
-  "start-backend": "node app.js", 
-  "start-frontend": "cd frontend && npm start",
-  "dev": "nodemon app.js"
-},
+  "scripts": {
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "node app.js",
+    "start-frontend": "cd frontend && npm install && npm run build && serve -s build",
+    "dev": "concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
+    "dev-backend": "nodemon app.js",
+    "dev-frontend": "cd frontend && npm start"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
