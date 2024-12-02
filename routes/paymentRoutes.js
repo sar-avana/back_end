@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
 const Razorpay = require('razorpay');
 const Order = require('../models/Order');
 const Product = require('../models/Product');

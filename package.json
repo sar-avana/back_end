@@ -2,10 +2,12 @@
   "name": "my-api",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
+ "scripts": {
+  "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+  "start-backend": "node app.js", 
+  "start-frontend": "cd frontend && npm start",
+  "dev": "nodemon app.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,6 +24,7 @@
     "razorpay": "^2.9.5"
   },
   "devDependencies": {
+    "concurrently": "^9.1.0",
     "nodemon": "^3.1.7"
   }
 }

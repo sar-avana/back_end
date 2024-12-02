@@ -99,10 +99,6 @@ app.use('/user', userRoutes); //Import user Routes
 const addressRoutes = require('./routes/addressRoutes');
 app.use('/address', addressRoutes); //Import address Routes
 
-const paymentRoutes = require('./routes/paymentRoutes'); // Adjust the path as necessary
-
-app.use(bodyParser.json());
-app.use('/payment', paymentRoutes); // Route for the webhook handler
 
 // Start the server
 const PORT = process.env.PORT || 3000;
