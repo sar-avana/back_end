@@ -22,7 +22,7 @@ function Home() {
       const token = localStorage.getItem("authToken");
       if (!token) return;
 
-      const response = await fetch("http://localhost:5000/cart", {
+      const response = await fetch("https://my-backend-app-vbu4.onrender.com/cart", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function Home() {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem("authToken"); // Get the token from localStorage
-      const response = await fetch(`http://localhost:5000/products?query=${searchQuery}`, {
+      const response = await fetch(`https://my-backend-app-vbu4.onrender.com/products?query=${searchQuery}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Home() {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/cart/add", {
+      const response = await fetch("https://my-backend-app-vbu4.onrender.com/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

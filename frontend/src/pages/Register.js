@@ -37,7 +37,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/register', { // Replace with your backend API
+      const response = await fetch('https://my-backend-app-vbu4.onrender.com/register', { // Replace with your backend API
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

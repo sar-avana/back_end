@@ -33,7 +33,7 @@ function PaymentPage() {
           };
 
           // Confirm the payment
-          const confirmResponse = await fetch('http://localhost:5000/payment/confirm-order', {
+          const confirmResponse = await fetch('https://my-backend-app-vbu4.onrender.com/payment/confirm-order', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

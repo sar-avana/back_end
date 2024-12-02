@@ -11,7 +11,7 @@ function OrderDetails() {
     const fetchOrderDetails = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await fetch(`http://localhost:5000/order/${orderId}`, {
+        const response = await fetch(`https://my-backend-app-vbu4.onrender.com/order/${orderId}`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ function OrderDetails() {
   const handleProceedToPayment = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('http://localhost:5000/payment/create-order', {
+      const response = await fetch('https://my-backend-app-vbu4.onrender.com/payment/create-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

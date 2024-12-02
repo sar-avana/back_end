@@ -13,7 +13,7 @@ function ProductDetails() {
       const token = localStorage.getItem("authToken");  // Get the auth token from localStorage
 
       try {
-        const response = await fetch(`http://localhost:5000/products/${id}`, {
+        const response = await fetch(`https://my-backend-app-vbu4.onrender.com/products/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
