@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { backendURL } from './config';
 
 function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,7 +23,7 @@ function Home() {
       const token = localStorage.getItem("authToken");
       if (!token) return;
 
-      const response = await fetch("https://my-backend-app-vbu4.onrender.com/cart", {
+      const response = await fetch("${backendURL}/cart", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ function Home() {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem("authToken"); // Get the token from localStorage
-      const response = await fetch(`https://my-backend-app-vbu4.onrender.com/products?query=${searchQuery}`, {
+      const response = await fetch(`${backendURL}/products?query=${searchQuery}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +82,7 @@ function Home() {
         return;
       }
 
-      const response = await fetch("https://my-backend-app-vbu4.onrender.com/cart/add", {
+      const response = await fetch("${backendURL}/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { backendURL } from './config';
 
 function PaymentPage() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function PaymentPage() {
           };
 
           // Confirm the payment
-          const confirmResponse = await fetch('https://my-backend-app-vbu4.onrender.com/payment/confirm-order', {
+          const confirmResponse = await fetch('${backendURL}/payment/confirm-order', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetails.css';
+import { backendURL } from './config';
 
 function ProductDetails() {
   const { id } = useParams();  // Get the product ID from the URL
@@ -13,7 +14,7 @@ function ProductDetails() {
       const token = localStorage.getItem("authToken");  // Get the auth token from localStorage
 
       try {
-        const response = await fetch(`https://my-backend-app-vbu4.onrender.com/products/${id}`, {
+        const response = await fetch(`${backendURL}/products/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

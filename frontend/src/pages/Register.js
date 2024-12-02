@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // For navigation after registration
 import './Register.css';
+import { backendURL } from './config';
 
 function Register() {
   const [name, setName] = useState('');
@@ -37,7 +38,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('https://my-backend-app-vbu4.onrender.com/register', { // Replace with your backend API
+      const response = await fetch('${backendURL}/register', { // Replace with your backend API
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

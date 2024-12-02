@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';  // useParams to get the orderId from URL
 import './OrderDetails.css';
+import { backendURL } from './config';
 
 function OrderDetails() {
   const { orderId } = useParams();  // Get the orderId from URL params
@@ -11,7 +12,7 @@ function OrderDetails() {
     const fetchOrderDetails = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await fetch(`https://my-backend-app-vbu4.onrender.com/order/${orderId}`, {
+        const response = await fetch(`${backendURL}/order/${orderId}`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
@@ -34,7 +35,7 @@ function OrderDetails() {
   const handleProceedToPayment = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('https://my-backend-app-vbu4.onrender.com/payment/create-order', {
+      const response = await fetch('${backendURL}/payment/create-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

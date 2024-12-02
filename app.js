@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = require('./models/User'); // Import the User model
