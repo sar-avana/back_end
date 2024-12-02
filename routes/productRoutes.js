@@ -38,15 +38,26 @@ router.post('/', adminAuth, async (req, res) => {
     }
 });
 
-// Get all products (No admin check needed)
+// Get all products or search products by name (No admin check needed)
 router.get('/', async (req, res) => {
+    const { query } = req.query; // Get the query parameter for searching
+
     try {
-        const products = await Product.find();
+        let products;
+        if (query) {
+            // Search products by name if query exists
+            products = await Product.find({ name: { $regex: query, $options: 'i' } }); // Case-insensitive search
+        } else {
+            // If no query, return all products
+            products = await Product.find();
+        }
+
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching products', error });
     }
 });
+
 
 // Get a single product by ID (No admin check needed)
 router.get('/:id', async (req, res) => {

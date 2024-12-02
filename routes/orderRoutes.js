@@ -10,6 +10,7 @@ router.post('/placeOrder', authMiddleware, async (req, res) => {
         const userId = req.user._id;
         
         // Retrieve user's cart
+        
         const cart = await Cart.findOne({ user: userId }).populate('items.product');
         if (!cart || cart.items.length === 0) {
             return res.status(400).json({ message: 'Cart is empty' });
@@ -50,6 +51,7 @@ router.post('/placeOrder', authMiddleware, async (req, res) => {
         
         // Clear the cart after order placement
         cart.items = [];
+        cart.totalPrice = 0; // Reset the total price to zero
         await cart.save();
 
         res.status(201).json({ message: 'Order placed successfully', order });
@@ -68,6 +70,20 @@ router.get('/history', authMiddleware, async (req, res) => {
         res.status(500).json({ message: 'Error fetching order history', error });
     }
 });
+
+router.get('/:id', authMiddleware, async (req, res) => {
+    try {
+      const order = await Order.findById(req.params.id).populate('items.product');
+      if (!order) {
+        return res.status(404).json({ message: 'Order not found' });
+      }
+      res.status(200).json(order);
+    } catch (error) {
+      console.error('Error fetching order:', error);
+      res.status(500).json({ message: 'Error fetching order', error });
+    }
+  });
+  
 
 
 module.exports = router;

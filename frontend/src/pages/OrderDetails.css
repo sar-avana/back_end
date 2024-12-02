@@ -1,0 +1,136 @@
+/* Order Details Container */
+.order-details-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Title */
+  .order-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Order Summary */
+  .order-summary {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-summary p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Order Items Section */
+  .order-items {
+    margin-top: 20px;
+  }
+  
+  .order-items h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    flex: 2;
+  }
+  
+  .item-price,
+  .item-quantity,
+  .item-total {
+    font-size: 14px;
+    color: #666;
+    flex: 1;
+    text-align: right;
+  }
+  
+  /* Payment Button */
+  .payment-button {
+    display: block;
+    width: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Success Message */
+  .success-message {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #d4edda;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+  }
+  
+  .success-message h2 {
+    color: #155724;
+    margin-bottom: 10px;
+  }
+  
+  .success-message p {
+    color: #155724;
+    margin-bottom: 15px;
+  }
+  
+  /* Home Button */
+  .home-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -39,6 +39,8 @@ router.get('/', authMiddleware, async (req, res) => {
     }
 });
 
+
+
 // Update an address
 router.put('/:id', authMiddleware, async (req, res) => {
     const { id } = req.params;

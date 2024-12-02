@@ -5,11 +5,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = require('./models/User'); // Import the User model
+const cors = require('cors'); 
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
+
+app.use(cors());
 
 // Middleware to parse JSON
 app.use(bodyParser.json());
@@ -95,6 +98,11 @@ app.use('/user', userRoutes); //Import user Routes
 
 const addressRoutes = require('./routes/addressRoutes');
 app.use('/address', addressRoutes); //Import address Routes
+
+const paymentRoutes = require('./routes/paymentRoutes'); // Adjust the path as necessary
+
+app.use(bodyParser.json());
+app.use('/payment', paymentRoutes); // Route for the webhook handler
 
 // Start the server
 const PORT = process.env.PORT || 3000;
