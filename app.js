@@ -34,6 +34,15 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
+const path = require('path');
+
+// Serve static files from React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
+
 // Register route
 app.post('/register', async (req, res) => {
     const { name, email, password, role } = req.body;  // Accept role in the request
