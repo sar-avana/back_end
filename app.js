@@ -12,7 +12,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// Add CORS middleware to allow requests from your frontend URL
+const allowedOrigins = ['https://front-end-1-j9vk.onrender.com']; // Your frontend URL
+app.use(cors({
+  origin: allowedOrigins, // Allow only this domain
+  methods: ['GET', 'POST'], // Specify allowed HTTP methods
+}));
 
 // Middleware to parse JSON
 app.use(bodyParser.json());
