@@ -11,7 +11,7 @@ function Cart() {
     const fetchCart = async () => {
       const token = localStorage.getItem('authToken');
       try {
-        const response = await fetch('${backendURL}/cart', {
+        const response = await fetch(`${backendURL}/cart`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`, // Include the token in the Authorization header
@@ -33,7 +33,7 @@ function Cart() {
   const handlePlaceOrder = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${backendURL}/order/placeOrder', {
+      const response = await fetch(`${backendURL}/order/placeOrder`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -35,7 +35,7 @@ function OrderDetails() {
   const handleProceedToPayment = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('${backendURL}/payment/create-order', {
+      const response = await fetch(`${backendURL}/payment/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

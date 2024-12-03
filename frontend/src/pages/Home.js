@@ -23,7 +23,7 @@ function Home() {
       const token = localStorage.getItem("authToken");
       if (!token) return;
 
-      const response = await fetch("${backendURL}/cart", {
+      const response = await fetch(`${backendURL}/cart`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ function Home() {
         return;
       }
 
-      const response = await fetch("${backendURL}/cart/add", {
+      const response = await fetch(`${backendURL}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

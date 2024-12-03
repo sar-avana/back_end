@@ -38,7 +38,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('${backendURL}/register', { // Replace with your backend API
+      const response = await fetch(`${backendURL}/register`, { // Replace with your backend API
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
