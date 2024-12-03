@@ -1,1 +1,0 @@
-export const backendURL = "https://my-backend-app-vbu4.onrender.com";

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
-  "start-backend": "node app.js",
-  "start-frontend": "cd frontend && npm start"
+  "start": "node app.js"
 }
 ,
   "keywords": [],
