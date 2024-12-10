@@ -7,17 +7,14 @@ const mongoose = require('mongoose');
 const User = require('./models/User'); // Import the User model
 const cors = require('cors'); 
 
+const router = express.Router();
+
 // Load environment variables
 dotenv.config();
 
 const app = express();
 
-// Add CORS middleware to allow requests from your frontend URL
-const allowedOrigins = ['https://front-end-1-j9vk.onrender.com']; // Your frontend URL
-app.use(cors({
-  origin: allowedOrigins, // Allow only this domain
-  methods: ['GET', 'POST'], // Specify allowed HTTP methods
-}));
+app.use(cors());
 
 // Middleware to parse JSON
 app.use(bodyParser.json());
@@ -105,9 +102,13 @@ app.use('/user', userRoutes); //Import user Routes
 const addressRoutes = require('./routes/addressRoutes');
 app.use('/address', addressRoutes); //Import address Routes
 
+const adminvalidationRoute = require('./routes/adminvalidationRoute');
+app.use('/auth', adminvalidationRoute);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = router;

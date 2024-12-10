@@ -5,43 +5,47 @@ const orderItemSchema = new mongoose.Schema({
     product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
-        required: true
+        required: true,
     },
     quantity: {
         type: Number,
-        required: true
+        required: true,
     },
     totalPrice: {
         type: Number,
-        required: true
-    }
+        required: true,
+    },
 });
 
 const orderSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: true,
     },
     items: [orderItemSchema],
     totalPrice: {
         type: Number,
-        required: true
+        required: true,
     },
     paymentStatus: {
         type: String,
         enum: ['Pending', 'Paid', 'Failed'],
-        default: 'Pending'
+        default: 'Pending',
     },
     deliveryStatus: {
         type: String,
         enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled'],
-        default: 'Processing'
+        default: 'Processing',
+    },
+    razorpayOrderId: {
+        type: String, // Store the Razorpay order ID
+        required: false, // Make this optional since not all orders may involve Razorpay
     },
     createdAt: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+    },
 });
 
 module.exports = mongoose.model('Order', orderSchema);
